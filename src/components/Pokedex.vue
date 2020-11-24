@@ -31,17 +31,17 @@ export default {
   methods: {
     async getPokemonById() {
       await fetch(`https://pokeapi.co/api/v2/pokemon/${this.pokemonId}`)
-          .then(response => response.json())
-          .then(data => {
-            this.pokemon = data;
-            this.loading = false;
-            this.error = false;
-          })
-          .catch(err => {
-            console.error(err);
-            this.loading = false;
-            this.error = true;
-          });
+        .then(response => response.json())
+        .then(data => {
+          this.pokemon = data;
+          this.loading = false;
+          this.error = false;
+        })
+        .catch(err => {
+          console.error(err);
+          this.loading = false;
+          this.error = true;
+        });
     }
   },
   created() {
@@ -50,6 +50,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
