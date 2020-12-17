@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Poked&eacute;x</h1>
-    <pokedex-search />
+    <pokedex-search v-on:submit="handleSubmit($event)" />
     <pokedex-card
       v-bind:pokemon="pokemon"
       v-bind:loading="loading"
@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import PokedexSearch from "@/components/PokedexSearch";
-import PokedexCard from "@/components/PokedexCard";
+import PokedexSearch from "./PokedexSearch";
+import PokedexCard from "./PokedexCard";
 
 export default {
   name: "Pokedex",
@@ -42,6 +42,16 @@ export default {
           this.loading = false;
           this.error = true;
         });
+    },
+    handleSubmit(pokemonId) {
+      if (pokemonId !== "") {
+        this.error = false;
+        this.loading = true;
+        this.pokemonId = pokemonId;
+        this.getPokemonById();
+        return;
+      }
+      this.error = true;
     }
   },
   created() {
