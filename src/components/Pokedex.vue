@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Poked&eacute;x</h1>
+  <div class="container">
+    <h1 class="pokedex-title">Poked&eacute;x</h1>
     <pokedex-search v-on:submit="handleSubmit($event)" />
     <pokedex-card
       v-bind:pokemon="pokemon"
@@ -60,4 +60,16 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokedex-title {
+  font-size: 4.5em;
+  color: #F7C406;
+  -webkit-text-stroke: 3px #3C5AAF;
+}
+</style>
