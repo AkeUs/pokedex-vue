@@ -44,4 +44,4 @@ jobs:
           push: true
           tags: |
             akeus/pokedex-vue:latest
-            akeus/pokedex-vue:${{ github.run_number }}
+            akeus/pokedex-vue:${{ github.run_id }}
